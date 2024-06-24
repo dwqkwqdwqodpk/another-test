@@ -48,3 +48,7 @@ function updateTimer() {
 // Запускаем таймер
 const startTime = new Date().getTime()
 const timer = setInterval(updateTimer, 1000)
+
+
+
+const modal = document.querySelector('.modal')
