@@ -2,7 +2,7 @@
 const minutes = 10
 
 // Конвертируем минуты в миллисекунды
-const milliseconds = minutes * 60 * 20
+const milliseconds = minutes * 60 * 1001
 
 // Получаем элемент, в который будет вставлен таймер
 const timerElement = document.querySelector('.timer')
