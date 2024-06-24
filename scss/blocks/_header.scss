@@ -1,0 +1,56 @@
+.header__timer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	position: relative;
+	background-color: #fff;
+	min-height: 80px;
+}
+
+.header-subtitle {
+	font-size: 30px;
+	color: var(--accent);
+	font-weight: bold;
+}
+
+.timer {
+	font-size: 60px;
+	color: #01b9c5;
+	line-height: 103%;
+	position: relative;
+	width: 165px;
+	&::after {
+		content: 'минуты';
+		position: absolute;
+		color: #818798;
+		left: 5.5%;
+		top: 45%;
+		font-size: 16px;
+	}
+
+	&::before {
+		content: 'секунды';
+		position: absolute;
+		color: #818798;
+		left: 58.5%;
+		top: 45%;
+		font-size: 16px;
+	}
+}
+
+.timer__info {
+	position: absolute;
+	bottom: 5%;
+	font-weight: bold;
+	font-size: 16px;
+	color: #818798;
+}
+
+.timer__info-1 {
+	left: 55%;
+}
+
+.timer__info-2 {
+	left: 60%;
+}
