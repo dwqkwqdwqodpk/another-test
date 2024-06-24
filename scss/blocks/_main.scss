@@ -41,6 +41,12 @@
 	align-items: center;
 	max-width: 187px;
 	max-height: 276px;
+	transition: all 0.4s ease-in;
+
+	&:hover {
+		border: 2px solid #01b9c5;
+		background-color: rgb(1, 185, 197, 0.05);
+	}
 }
 
 .card__title {
@@ -144,8 +150,6 @@
 	text-align: end;
 	text-decoration: line-through;
 }
-
-
 
 .test {
 	opacity: 0;

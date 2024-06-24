@@ -2,20 +2,22 @@
 const minutes = 10
 
 // Конвертируем минуты в миллисекунды
-const milliseconds = minutes * 60 * 1001
+const milliseconds = minutes * 60 * 15
 
+let isModalOpen = false
 // Получаем элемент, в который будет вставлен таймер
 const timerElement = document.querySelector('.timer')
 
 // Функция для обновления таймера каждую секунду
 function updateTimer() {
-	const header = document.querySelector('.header__timer')
 	// Получаем текущее время
 	let currentTime = new Date().getTime()
 
 	// Рассчитываем оставшееся время
 	let remainingTime = milliseconds - (currentTime - startTime)
-
+	if (remainingTime <= 30000) {
+		timerElement.style.color = '#FD4D35'
+	}
 	if (remainingTime <= 0) {
 		const prices = document.querySelectorAll('.card__price')
 		const old = document.querySelectorAll('.old__price')
@@ -29,8 +31,18 @@ function updateTimer() {
 			old[i].style.fontWeight = 'bold'
 			old[i].style.fontSize = '40px'
 		}
-		timerElement.style.color = '#FD4D35'
 		another.style.fontSize = '30px'
+
+		if (!isModalOpen) {
+			const modal = document.querySelector('.modal')
+			modal.classList.remove('none')
+			isModalOpen = true
+			const close = document.querySelector('.close')
+
+			close.onclick = () => {
+				modal.classList.toggle('none')
+			}
+		}
 		return
 	}
 
@@ -48,7 +60,3 @@ function updateTimer() {
 // Запускаем таймер
 const startTime = new Date().getTime()
 const timer = setInterval(updateTimer, 1000)
-
-
-
-const modal = document.querySelector('.modal')
