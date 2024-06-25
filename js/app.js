@@ -2,11 +2,19 @@
 const minutes = 10
 
 // Конвертируем минуты в миллисекунды
-const milliseconds = minutes * 60 * 6
+const milliseconds = minutes * 60 * 10
 
 let isModalOpen = false
 // Получаем элемент, в который будет вставлен таймер
 const timerElement = document.querySelector('.timer')
+const mediaQuery = window.matchMedia('(max-width: 700px)')
+
+if (mediaQuery.matches) {
+	let element = document.querySelector('.card__text-second')
+	let year = document.querySelector('.year')
+	year.innerHTML = '1 год'
+	element.innerHTML = 'Всегда быть в форме ⭐️'
+}
 
 // Функция для обновления таймера каждую секунду
 function updateTimer() {
