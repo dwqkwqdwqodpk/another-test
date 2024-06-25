@@ -27,6 +27,10 @@
 								<p class="old__price">999₽</p>
 							</div>
 							<p class="card__text">Чтобы просто начать 👍🏻</p>
+							<div class="star">
+								<img src="./img/Star.svg" alt="" />
+								<p class="star__text">-30%</p>
+							</div>
 						</div>
 						<div class="row__card">
 							<h3 class="card__title">1 месяц</h3>
@@ -35,6 +39,10 @@
 								<p class="old__price">1690₽</p>
 							</div>
 							<p class="card__text">Привести тело впорядок 💪🏻</p>
+							<div class="star">
+								<img src="./img/Star.svg" alt="" />
+								<p class="star__text">-40%</p>
+							</div>
 						</div>
 						<div class="row__card">
 							<h3 class="card__title">3 месяца</h3>
@@ -43,6 +51,10 @@
 								<p class="old__price">5990₽</p>
 							</div>
 							<p class="card__text">Изменить образ жизни 🔥</p>
+							<div class="star">
+								<img src="./img/Star.svg" alt="" />
+								<p class="star__text">-50%</p>
+							</div>
 						</div>
 						<div class="row__card row__card-second">
 							<h3 class="card__title card__title-second">Навсегда</h3>
@@ -53,6 +65,10 @@
 							<p class="card__text card__text-second">
 								Всегда быть в форме и поддерживать своё здоровье ⭐️
 							</p>
+							<div class="star star-second">
+								<img src="./img/Star.svg" alt="" />
+								<p class="star__text">-70%</p>
+							</div>
 						</div>
 					</div>
 					<p class="cards__text">
@@ -60,7 +76,12 @@
 						чем за 1 месяц
 					</p>
 					<div class="cards__privacy">
-						<input type="checkbox" name="" class="checkbox" />
+						<label for="checkbox" class="checkbox-label">
+							<input type="checkbox" class="checkbox" />
+							<span class="checkbox-view">
+								<img src="./img/vector.svg" alt="" />
+							</span>
+						</label>
 						<a href="" class="privacy-text">
 							Я соглашаюсь с <span>Правилами сервиса</span> и условиями
 							<span>Публичной оферты.</span>
@@ -75,56 +96,95 @@
 					</p>
 				</div>
 			</main>
-			<div class="modal none">
-				<div class="modal__subtitle-wrap">
-					<h4 class="modal__subtitle">горящее предложение</h4>
-					<button class="close"><img src="./img/close.svg" alt="" /></button>
+			<div class="modal__wrap none">
+				<div class="modal">
+					<div class="modal__subtitle-wrap">
+						<h4 class="modal__subtitle">горящее предложение</h4>
+						<button class="close"><img src="./img/close.svg" alt="" /></button>
+					</div>
+					<div class="modal__card">
+						<h3 class="modal__title">
+							Не упусти свой <span>последний шанс</span>
+						</h3>
+						<div class="modal__info">
+							<p class="modal__info-text">
+								Мы знаем, как трудно начать.. <span>Поэтому!</span>
+							</p>
+							<a href="#" class="info__link">
+								Дарим скидку для <span>лёгкого старта 🏃‍♂️</span>
+							</a>
+						</div>
+						<h4 class="modal__cards-title">
+							Посмотри, что мы для тебя приготовили 🔥
+						</h4>
+						<div class="modal__cards">
+							<div class="modal__card-item">
+								<div class="card__info-item-wrap">
+									<p class="card__info-item">1 неделя</p>
+									<div class="radio">
+										<input
+											class="custom-radio"
+											type="radio"
+											id="color-1"
+											name="choised"
+										/>
+										<label for="color-1"></label>
+									</div>
+								</div>
+								<p class="card__old-price">999Р</p>
+								<p class="card__info-price">599₽</p>
+								<div class="modal-star">
+									<img src="./img/Star.svg" alt="" />
+									<p class="star__text">-30%</p>
+								</div>
+							</div>
+							<div class="modal__card-item">
+								<div class="card__info-item-wrap">
+									<p class="card__info-item">1 Месяц</p>
+									<div class="radio">
+										<input
+											class="custom-radio"
+											type="radio"
+											id="color-2"
+											name="choised"
+										/>
+										<label for="color-2"></label>
+									</div>
+								</div>
+								<p class="card__old-price">1690Р</p>
+								<p class="card__info-price">799₽</p>
+								<div class="modal-star">
+									<img src="./img/Star.svg" alt="" />
+									<p class="star__text">-50%</p>
+								</div>
+							</div>
+							<div class="modal__card-item">
+								<div class="card__info-item-wrap">
+									<p class="card__info-item">3 месяца</p>
+									<div class="radio">
+										<input
+											class="custom-radio"
+											type="radio"
+											id="color-3"
+											name="choised"
+										/>
+										<label for="color-3"></label>
+									</div>
+								</div>
+								<p class="card__old-price">5990Р</p>
+								<p class="card__info-price">1690₽</p>
+								<div class="modal-star modal-star-second">
+									<img src="./img/Star.svg" alt="" />
+									<p class="star__text">-60%</p>
+								</div>
+							</div>
+						</div>
+						<div class="modal__btn">
+							<button class="btn-modal">Начать тренироваться</button>
+						</div>
+					</div>
 				</div>
-				<div class="modal__card">
-					<h3 class="modal__title">
-						Не упусти свой <span>последний шанс</span>
-					</h3>
-					<div class="modal__info">
-						<p class="modal__info-text">
-							Мы знаем, как трудно начать.. <span>Поэтому!</span>
-						</p>
-						<a href="#" class="info__link">
-							Дарим скидку для <span>лёгкого старта 🏃‍♂️</span>
-						</a>
-					</div>
-					<h4 class="modal__cards-title">
-						Посмотри, что мы для тебя приготовили 🔥
-					</h4>
-					<div class="modal__cards">
-						<div class="modal__card-item">
-							<div class="card__info-item-wrap">
-								<p class="card__info-item">1 неделя</p>
-								<input type="checkbox" name="" id="" />
-							</div>
-							<p class="card__old-price">999Р</p>
-							<p class="card__info-price">599₽</p>
-						</div>
-						<div class="modal__card-item">
-							<div class="card__info-item-wrap">
-								<p class="card__info-item">1 Месяц</p>
-								<input type="checkbox" name="" id="" />
-							</div>
-							<p class="card__old-price">1690Р</p>
-							<p class="card__info-price">799₽</p>
-						</div>
-						<div class="modal__card-item">
-							<div class="card__info-item-wrap">
-								<p class="card__info-item">3 месяца</p>
-								<input type="checkbox" name="" id="" />
-							</div>
-							<p class="card__old-price">5990Р</p>
-							<p class="card__info-price">1690₽</p>
-						</div>
-					</div>
-					<div class="modal__btn">
-						<button class="btn-modal">Начать тренироваться</button>
-					</div>
-				</div>
+				<div class="overlay"></div>
 			</div>
 		</main>
 	</body>

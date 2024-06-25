@@ -2,7 +2,7 @@
 const minutes = 10
 
 // Конвертируем минуты в миллисекунды
-const milliseconds = minutes * 60 * 15
+const milliseconds = minutes * 60 * 6
 
 let isModalOpen = false
 // Получаем элемент, в который будет вставлен таймер
@@ -22,8 +22,11 @@ function updateTimer() {
 		const prices = document.querySelectorAll('.card__price')
 		const old = document.querySelectorAll('.old__price')
 		const another = document.querySelector('.another')
+		const over = document.querySelector('.overlay')
+		const stars = document.querySelectorAll('.star')
 		for (let i = 0; i < prices.length; i++) {
 			prices[i].style.display = 'none'
+			stars[i].style.display = 'none'
 		}
 		for (let i = 0; i < old.length; i++) {
 			old[i].style.textDecoration = 'unset'
@@ -34,15 +37,16 @@ function updateTimer() {
 		another.style.fontSize = '30px'
 
 		if (!isModalOpen) {
-			const modal = document.querySelector('.modal')
+			const modal = document.querySelector('.modal__wrap')
 			modal.classList.remove('none')
 			isModalOpen = true
 			const close = document.querySelector('.close')
-
+			over.style.display = 'block'
 			close.onclick = () => {
 				modal.classList.toggle('none')
 			}
 		}
+
 		return
 	}
 

@@ -2,6 +2,7 @@
 	margin-top: 27px;
 	margin-bottom: 110px;
 	position: relative;
+	overflow-x: hidden;
 }
 
 .main__title {
@@ -113,7 +114,15 @@
 .checkbox {
 	height: 24px;
 	width: 24px;
-	color: green;
+	appearance: none;
+	position: absolute;
+}
+
+.checkbox-label {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	font-size: 18px;
 }
 
 .privacy-text {
@@ -154,4 +163,54 @@
 .test {
 	opacity: 0;
 	position: absolute;
+}
+
+.checkbox-view {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	background: #fff;
+	transition: 0.3s;
+}
+
+.checkbox-icon {
+	opacity: 0;
+	transition: 0.3s;
+}
+
+.checkbox:checked + .checkbox-view {
+	background-color: green;
+}
+
+.checkbox:checked + .checkbox-view .checkbox-icon {
+	opacity: 1;
+}
+
+// start
+.row__card {
+	position: relative;
+}
+.star {
+	position: absolute;
+	right: 0;
+	top: -10%;
+}
+
+.star__text {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 18px;
+	color: #fff;
+}
+
+
+
+.star-second {
+	top: -25%;
 }
