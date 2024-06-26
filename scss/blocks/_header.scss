@@ -56,3 +56,19 @@
 .timer__info-2 {
 	left: 60%;
 }
+
+.animate {
+	animation: timer 2s linear infinite;
+}
+
+@keyframes timer {
+	0% {
+		scale: 1;
+	}
+	50% {
+		scale: 1.04;
+	}
+	100% {
+		scale: 1;
+	}
+}

@@ -8,7 +8,8 @@ let isModalOpen = false
 // Получаем элемент, в который будет вставлен таймер
 const timerElement = document.querySelector('.timer')
 const mediaQuery = window.matchMedia('(max-width: 700px)')
-
+const cardText = document.querySelectorAll('.card__text')
+const secondText = document.querySelector('.card__text-second')
 if (mediaQuery.matches) {
 	let element = document.querySelector('.card__text-second')
 	let year = document.querySelector('.year')
@@ -20,12 +21,14 @@ if (mediaQuery.matches) {
 function updateTimer() {
 	// Получаем текущее время
 	let currentTime = new Date().getTime()
-
 	// Рассчитываем оставшееся время
 	let remainingTime = milliseconds - (currentTime - startTime)
-	if (remainingTime <= 30000) {
+	//
+	if (remainingTime <= 30000 && remainingTime >= 0) {
 		timerElement.style.color = '#FD4D35'
+		timerElement.classList.add('animate')
 	}
+
 	if (remainingTime <= 0) {
 		const prices = document.querySelectorAll('.card__price')
 		const old = document.querySelectorAll('.old__price')
@@ -35,6 +38,7 @@ function updateTimer() {
 		for (let i = 0; i < prices.length; i++) {
 			prices[i].style.display = 'none'
 			stars[i].style.display = 'none'
+			cardText[i].style.marginBotton = '0px'
 		}
 		for (let i = 0; i < old.length; i++) {
 			old[i].style.textDecoration = 'unset'
@@ -43,6 +47,7 @@ function updateTimer() {
 			old[i].style.fontSize = '40px'
 		}
 		another.style.fontSize = '30px'
+		timerElement.classList.remove('animate')
 
 		if (!isModalOpen) {
 			const modal = document.querySelector('.modal__wrap')
