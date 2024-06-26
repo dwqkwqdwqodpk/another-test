@@ -317,7 +317,6 @@ body {
   max-width: unset;
   grid-column-start: 1;
   grid-column-end: 4;
-  max-height: 125px;
   padding: 23px 40px 25px 31px;
   gap: 20px;
 }
@@ -325,11 +324,7 @@ body {
   .row__card-second {
     grid-column-end: 2;
     padding: clamp(1.563rem, 1.241rem + 1.61vw, 2.688rem);
-  }
-}
-@media (max-width: 550px) {
-  .row__card-second {
-    max-height: 157px;
+    max-height: 182px;
   }
 }
 

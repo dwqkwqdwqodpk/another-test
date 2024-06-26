@@ -2,7 +2,7 @@
 const minutes = 10
 
 // Конвертируем минуты в миллисекунды
-const milliseconds = minutes * 60 * 10
+const milliseconds = minutes * 60 * 1000
 
 let isModalOpen = false
 // Получаем элемент, в который будет вставлен таймер
