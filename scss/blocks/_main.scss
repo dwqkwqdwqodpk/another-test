@@ -12,7 +12,7 @@
 	color: var(--accent);
 	margin-bottom: clamp(1.25rem, -0.179rem + 7.14vw, 6.25rem);
 
-	@media(max-width:700px) {
+	@media (max-width: 700px) {
 		text-align: start;
 	}
 }
@@ -47,12 +47,12 @@
 }
 
 .row__card {
-	padding: 45px 43px 0 31px;
 	background-color: #ffffff;
 	border: 2px solid #d3d6dd;
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	max-width: 187px;
 	max-height: 276px;
@@ -68,10 +68,11 @@
 		max-width: unset;
 		width: 100%;
 		flex-direction: unset;
-		justify-content: space-between;
 		flex-wrap: wrap;
+		justify-content: space-between;
 		align-items: center;
-		padding: clamp(1.563rem, 1.241rem + 1.61vw, 2.688rem);
+		height: 140px;
+		padding: 36px 24px 26px;
 	}
 }
 
@@ -83,7 +84,7 @@
 	letter-spacing: -2px;
 
 	@media (max-width: 1200px) {
-		margin-bottom: 0;
+		margin-bottom: 80px;
 	}
 }
 
@@ -91,7 +92,7 @@
 	margin-bottom: 18px;
 
 	@media (max-width: 1200px) {
-		margin-bottom: 0;
+		// margin-right: 15%;
 	}
 }
 
@@ -108,10 +109,12 @@
 
 	@media (max-width: 1200px) {
 		max-width: unset;
-		width: 100%;
+		width: 97px;
 		text-align: start;
 		position: relative;
 		bottom: 10px;
+		position: absolute;
+		letter-spacing: -1px;
 	}
 }
 
@@ -126,8 +129,8 @@
 
 	@media (max-width: 1200px) {
 		grid-column-end: 2;
-		padding: clamp(1.563rem, 1.241rem + 1.61vw, 2.688rem);
-		max-height: 182px;
+		padding: 36px 24px 26px;
+		gap: 0;
 	}
 }
 
@@ -145,8 +148,9 @@
 		max-width: unset;
 		width: 100%;
 		margin-left: 0;
-		position: relative;
-		bottom: 30px;
+		position: absolute;
+		bottom: 10px;
+		max-width: 90px;
 	}
 }
 

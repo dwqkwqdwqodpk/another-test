@@ -240,12 +240,12 @@ body {
 }
 
 .row__card {
-  padding: 45px 43px 0 31px;
   background-color: #ffffff;
   border: 2px solid #d3d6dd;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   max-width: 187px;
   max-height: 276px;
@@ -261,10 +261,11 @@ body {
     max-width: unset;
     width: 100%;
     flex-direction: unset;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    padding: clamp(1.563rem, 1.241rem + 1.61vw, 2.688rem);
+    height: 140px;
+    padding: 36px 24px 26px;
   }
 }
 
@@ -277,19 +278,13 @@ body {
 }
 @media (max-width: 1200px) {
   .card__title {
-    margin-bottom: 0;
+    margin-bottom: 80px;
   }
 }
 
 .card__prices {
   margin-bottom: 18px;
 }
-@media (max-width: 1200px) {
-  .card__prices {
-    margin-bottom: 0;
-  }
-}
-
 .card__price {
   font-weight: bold;
   font-size: clamp(2.75rem, 2.643rem + 0.54vw, 3.125rem);
@@ -304,10 +299,12 @@ body {
 @media (max-width: 1200px) {
   .card__text {
     max-width: unset;
-    width: 100%;
+    width: 97px;
     text-align: start;
     position: relative;
     bottom: 10px;
+    position: absolute;
+    letter-spacing: -1px;
   }
 }
 
@@ -323,8 +320,8 @@ body {
 @media (max-width: 1200px) {
   .row__card-second {
     grid-column-end: 2;
-    padding: clamp(1.563rem, 1.241rem + 1.61vw, 2.688rem);
-    max-height: 182px;
+    padding: 36px 24px 26px;
+    gap: 0;
   }
 }
 
@@ -344,8 +341,9 @@ body {
     max-width: unset;
     width: 100%;
     margin-left: 0;
-    position: relative;
-    bottom: 30px;
+    position: absolute;
+    bottom: 10px;
+    max-width: 90px;
   }
 }
 
@@ -568,6 +566,7 @@ body {
   border: 2px solid #e7eaf1;
   position: relative;
   width: 210px;
+  height: clamp(8.313rem, 6.838rem + 6.29vw, 12.5rem);
 }
 .modal__card-item::after {
   content: "";
@@ -587,14 +586,18 @@ body {
   .modal__card-item {
     width: 100%;
   }
+  .modal__card-item::after {
+    display: none;
+  }
 }
 
 .card__info-item {
-  font-size: 26px;
+  font-size: clamp(1.5rem, 1.455rem + 0.23vw, 1.625rem);
   text-transform: uppercase;
   color: #2d3242;
   max-width: 210px;
   flex-shrink: 0;
+  letter-spacing: -2px;
 }
 
 .card__old-price {
@@ -628,9 +631,17 @@ body {
   top: 50%;
   transform: translate(-50%, -50%) rotate(-15deg);
 }
+@media (max-width: 1200px) {
+  .card__old-price {
+    position: absolute;
+    right: 20px;
+    bottom: 27px;
+    margin-bottom: 0;
+  }
+}
 
 .card__info-price {
-  font-size: 46px;
+  font-size: clamp(2.75rem, 2.705rem + 0.23vw, 2.875rem);
   font-weight: bold;
 }
 
@@ -638,7 +649,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+}
+@media (max-width: 1200px) {
+  .card__info-item-wrap {
+    margin-bottom: clamp(0.75rem, -0.244rem + 4.24vw, 2.938rem);
+  }
 }
 
 .modal__btn {
@@ -712,15 +727,19 @@ body {
   position: absolute;
   top: 57%;
   right: 11%;
-  height: 50px;
-  width: 50px;
+  height: clamp(2.5rem, 2.216rem + 1.21vw, 3.125rem);
+  width: clamp(2.5rem, 2.216rem + 1.21vw, 3.125rem);
 }
 .modal-star p {
-  font-size: 13px;
+  font-size: clamp(0.625rem, 0.54rem + 0.36vw, 0.813rem);
+}
+@media (max-width: 1200px) {
+  .modal-star {
+    right: clamp(7rem, -1.75rem + 37.33vw, 26.25rem);
+  }
 }
 
 .overlay {
-  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -732,4 +751,9 @@ body {
 
 .modal-star-second {
   right: 5px;
+}
+@media (max-width: 1200px) {
+  .modal-star-second {
+    right: clamp(6.563rem, -1.818rem + 35.76vw, 25rem);
+  }
 }/*# sourceMappingURL=main.css.map */

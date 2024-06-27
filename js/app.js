@@ -1,79 +1,95 @@
-// Устанавливаем время в минутах
-const minutes = 10
+const cards = document.querySelector('.row__cards')
+const titles = Array.from(cards.querySelectorAll('.card__title'))
+const prices = Array.from(cards.querySelectorAll('.card__price'))
+const oldPrices = Array.from(cards.querySelectorAll('.old__price'))
+const cardPrice = Array.from(document.querySelectorAll('.card__info-price'))
 
-// Конвертируем минуты в миллисекунды
-const milliseconds = minutes * 60 * 1000
-
-let isModalOpen = false
-// Получаем элемент, в который будет вставлен таймер
-const timerElement = document.querySelector('.timer')
-const mediaQuery = window.matchMedia('(max-width: 700px)')
-const cardText = document.querySelectorAll('.card__text')
-const secondText = document.querySelector('.card__text-second')
-if (mediaQuery.matches) {
-	let element = document.querySelector('.card__text-second')
-	let year = document.querySelector('.year')
-	year.innerHTML = '1 год'
-	element.innerHTML = 'Всегда быть в форме ⭐️'
+async function getResponse() {
+	try {
+		let response = await fetch('https://t-pay.iqfit.app/subscribe/list-test')
+		if (response.ok) {
+			let data = await response.json()
+			const filteredData = data.filter(
+				item => !item.isPopular && item.isDiscount === false
+			)
+			const isDiscount = data.filter(item => item.isDiscount)
+			for (let key in isDiscount) {
+				cardPrice[key].innerHTML = isDiscount[key].price + '₽'
+			}
+			function changes() {
+				const maxLength = Math.min(data.length, titles.length, prices.length)
+				for (let i = 0; i < maxLength; i++) {
+					titles[i].innerHTML = data[i].name
+					prices[i].innerHTML = data[i].price + '₽'
+				}
+				for (let j = 0; j < 4; j++) {
+					oldPrices[j].innerHTML = filteredData[j].price
+				}
+			}
+			changes()
+		} else {
+			console.log('Ошибка HTTP: ' + response.status)
+		}
+	} catch (error) {
+		console.error('Произошла ошибка:', error)
+	}
 }
 
-// Функция для обновления таймера каждую секунду
+getResponse()
+
+let isModalOpen = false
+
+let minutes = 10
+const milliseconds = minutes * 60 * 4
+const timerElement = document.querySelector('.timer')
+const startTime = new Date().getTime() // Установка начального времени
+
 function updateTimer() {
-	// Получаем текущее время
-	let currentTime = new Date().getTime()
-	// Рассчитываем оставшееся время
-	let remainingTime = milliseconds - (currentTime - startTime)
-	//
+	const currentTime = new Date().getTime()
+	const remainingTime = startTime + milliseconds - currentTime // Исправлено вычисление оставшегося времени
+
 	if (remainingTime <= 30000 && remainingTime >= 0) {
-		timerElement.style.color = '#FD4D35'
-		timerElement.classList.add('animate')
+		timerElement.style.color = '#fd4d35'
+		timerElement.classList.toggle('animate')
 	}
 
 	if (remainingTime <= 0) {
-		const prices = document.querySelectorAll('.card__price')
-		const old = document.querySelectorAll('.old__price')
-		const another = document.querySelector('.another')
-		const over = document.querySelector('.overlay')
-		const stars = document.querySelectorAll('.star')
-		for (let i = 0; i < prices.length; i++) {
-			prices[i].style.display = 'none'
-			stars[i].style.display = 'none'
-			cardText[i].style.marginBotton = '0px'
+		clearInterval(timerInterval)
+		let star = document.querySelectorAll('.star')
+		for (let i = 0; i < star.length; i++) {
+			star[i].style.display = 'none'
 		}
-		for (let i = 0; i < old.length; i++) {
-			old[i].style.textDecoration = 'unset'
-			old[i].style.color = 'black'
-			old[i].style.fontWeight = 'bold'
-			old[i].style.fontSize = '40px'
+		for (let value in prices) {
+			prices[value].style.display = 'none'
+			oldPrices[value].style.fontWeight = 'bold'
+			oldPrices[value].style.textDecoration = 'unset'
+			oldPrices[value].style.color = '#000'
+			oldPrices[value].style.fontSize =
+				'clamp(2.75rem, 2.643rem + 0.54vw, 3.125rem)'
 		}
-		another.style.fontSize = '30px'
-		timerElement.classList.remove('animate')
-
-		if (!isModalOpen) {
-			const modal = document.querySelector('.modal__wrap')
-			modal.classList.remove('none')
-			isModalOpen = true
-			const close = document.querySelector('.close')
-			over.style.display = 'block'
-			close.onclick = () => {
-				modal.classList.toggle('none')
-			}
-		}
-
+		const modal = document.querySelector('.modal__wrap	')
+		modal.classList.toggle('none')
+		const close = document.querySelector('.close')
+		close.addEventListener('click', function () {
+			modal.classList.toggle('none')
+		})
 		return
 	}
 
-	// Рассчитываем минуты и секунды
-	let minutes = Math.floor(remainingTime / (1000 * 60))
-	let seconds = Math.floor((remainingTime % (1000 * 60)) / 1000)
-
+	minutes = Math.floor(remainingTime / (1000 * 60))
+	const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000)
+	let formattedMinutes = minutes.toString().padStart(2, '0')
+	let formattedSeconds = seconds.toString().padStart(2, '0')
 	// Форматируем время
-	let formattedTime = '0' + minutes + ':' + (seconds < 10 ? '0' : '') + seconds
+	let formattedTime = formattedMinutes + ':' + formattedSeconds
 
 	// Вставляем время в элемент
 	timerElement.innerHTML = formattedTime
 }
 
-// Запускаем таймер
-const startTime = new Date().getTime()
-const timer = setInterval(updateTimer, 1000)
+timerInterval = setInterval(updateTimer, 1000)
+
+if (window.matchMedia('(max-width: 1200px)').matches) {
+	document.querySelector('.card__text-second ').innerHTML =
+		'Всегда быть в форме ⭐️'
+}

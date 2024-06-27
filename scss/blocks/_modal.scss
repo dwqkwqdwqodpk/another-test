@@ -91,6 +91,7 @@
 	border: 2px solid #e7eaf1;
 	position: relative;
 	width: 210px;
+	height: clamp(8.313rem, 6.838rem + 6.29vw, 12.5rem);
 	&::after {
 		content: '';
 		position: absolute;
@@ -109,15 +110,20 @@
 
 	@media (max-width: 1200px) {
 		width: 100%;
+
+		&::after {
+			display: none;
+		}
 	}
 }
 
 .card__info-item {
-	font-size: 26px;
+	font-size: clamp(1.5rem, 1.455rem + 0.23vw, 1.625rem);
 	text-transform: uppercase;
 	color: #2d3242;
 	max-width: 210px;
 	flex-shrink: 0;
+	letter-spacing: -2px;
 }
 
 .card__old-price {
@@ -149,10 +155,17 @@
 		top: 50%;
 		transform: translate(-50%, -50%) rotate(-15deg);
 	}
+
+	@media (max-width: 1200px) {
+		position: absolute;
+		right: 20px;
+		bottom: 27px;
+		margin-bottom: 0;
+	}
 }
 
 .card__info-price {
-	font-size: 46px;
+	font-size: clamp(2.75rem, 2.705rem + 0.23vw, 2.875rem);
 	font-weight: bold;
 }
 
@@ -160,7 +173,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-bottom: 12px;
+	@media (max-width: 1200px) {
+		margin-bottom: clamp(0.75rem, -0.244rem + 4.24vw, 2.938rem);
+	}
 }
 
 .modal__btn {
@@ -193,7 +208,7 @@
 .close {
 	margin-right: 20px;
 
-	@media(max-width:1200px) {
+	@media (max-width: 1200px) {
 		margin-right: -10px;
 	}
 }
@@ -230,15 +245,18 @@
 	position: absolute;
 	top: 57%;
 	right: 11%;
-	height: 50px;
-	width: 50px;
+	height: clamp(2.5rem, 2.216rem + 1.21vw, 3.125rem);
+	width: clamp(2.5rem, 2.216rem + 1.21vw, 3.125rem);
 	p {
-		font-size: 13px;
+		font-size: clamp(0.625rem, 0.54rem + 0.36vw, 0.813rem);
+	}
+
+	@media (max-width: 1200px) {
+		right: clamp(7rem, -1.75rem + 37.33vw, 26.25rem);
 	}
 }
 
 .overlay {
-	display: none;
 	position: fixed;
 	z-index: 1;
 	left: 0;
@@ -250,4 +268,8 @@
 
 .modal-star-second {
 	right: 5px;
+
+	@media (max-width: 1200px) {
+		right: clamp(6.563rem, -1.818rem + 35.76vw, 25rem);
+	}
 }
