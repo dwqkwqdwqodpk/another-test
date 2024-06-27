@@ -23,7 +23,7 @@ async function getResponse() {
 					prices[i].innerHTML = data[i].price + '₽'
 				}
 				for (let j = 0; j < 4; j++) {
-					oldPrices[j].innerHTML = filteredData[j].price
+					oldPrices[j].innerHTML = filteredData[j].price + '₽'
 				}
 			}
 			changes()
