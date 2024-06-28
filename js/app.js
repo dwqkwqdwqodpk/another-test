@@ -40,7 +40,7 @@ getResponse()
 let isModalOpen = false
 
 let minutes = 10
-const milliseconds = minutes * 60 * 20
+const milliseconds = minutes * 60 * 10
 const timerElement = document.querySelector('.timer')
 const startTime = new Date().getTime() // Установка начального времени
 
@@ -48,12 +48,13 @@ function updateTimer() {
 	const currentTime = new Date().getTime()
 	const remainingTime = startTime + milliseconds - currentTime // Исправлено вычисление оставшегося времени
 
-	if (remainingTime <= 30000 && remainingTime >= 0) {
+	if (remainingTime <= 30000 && remainingTime > 0) {
 		timerElement.style.color = '#fd4d35'
-		timerElement.classList.toggle('animate')
+		timerElement.classList.add('animate')
 	}
 
 	if (remainingTime <= 0) {
+		timerElement.classList.remove('animate')
 		clearInterval(timerInterval)
 		let star = document.querySelectorAll('.star')
 		for (let i = 0; i < star.length; i++) {
