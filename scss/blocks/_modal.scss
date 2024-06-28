@@ -192,13 +192,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 60px;
+	margin-top: clamp(1.25rem, 0.114rem + 4.85vw, 3.75rem);
+	margin-bottom: clamp(0rem, -1.136rem + 4.85vw, 2.5rem);
 }
 
 .btn-modal {
 	padding: 20px 42px;
 	background-color: #fd4d35;
-	margin-bottom: 40px;
 	border-radius: 30px;
 	font-size: 20px;
 	color: #fff;

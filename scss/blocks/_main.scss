@@ -274,7 +274,11 @@
 .star {
 	position: absolute;
 	right: 0;
-	top: -15%;
+	top: -10%;
+
+	@media (max-width: 1200px) {
+		top: -15%;
+	}
 }
 
 .star__text {
