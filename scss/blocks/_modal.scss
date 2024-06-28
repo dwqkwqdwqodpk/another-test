@@ -6,9 +6,10 @@
 	transform: translate(-50%, -50%);
 	background-color: #f5f7f7;
 	z-index: 2;
-	width: clamp(20rem, 12.321rem + 38.39vw, 46.875rem);
+	width: 750px;
 	@media (max-width: 1200px) {
 		padding: 0 20px 20px 20px;
+		width: clamp(20.938rem, 9.148rem + 50.3vw, 46.875rem);
 	}
 }
 
@@ -32,22 +33,28 @@
 .modal__info-text {
 	font-size: clamp(0.938rem, 0.777rem + 0.8vw, 1.5rem);
 	margin-bottom: 8px;
+	letter-spacing: -0.5px;
 	span {
 		font-weight: bold;
 	}
 }
 
 .info__link {
-	font-size: clamp(0.938rem, 0.777rem + 0.8vw, 1.5rem);
-	letter-spacing: -1px;
+	font-size: clamp(0.875rem, 0.655rem + 0.94vw, 1.5rem);
 	font-weight: bold;
 	color: var(--accent);
+	line-height: 130%;
 	span {
 		color: #01b9c5;
 	}
 	padding: 12px 28px;
 	border: 2px solid #01b9c5;
 	border-radius: 60px;
+
+	@media (max-width: 800px) {
+		padding: 12px 21px;
+		letter-spacing: -0.5px;
+	}
 }
 
 .modal__info {
@@ -55,7 +62,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 56px;
+	margin-bottom: clamp(1.625rem, 1.317rem + 1.31vw, 2.5rem);
 }
 
 .modal__cards {
@@ -72,9 +79,10 @@
 
 .modal__cards-title {
 	margin-left: 40px;
-	font-size: clamp(0.938rem, 0.777rem + 0.8vw, 1.5rem);
+	font-size: clamp(0.938rem, 0.739rem + 0.85vw, 1.5rem);
 	margin-bottom: 20px;
 	letter-spacing: -1px;
+	color: #12191d;
 
 	@media (max-width: 1200px) {
 		margin-left: 0;
@@ -87,7 +95,7 @@
 	background-color: #ffffff;
 	border-radius: 20px;
 	position: relative;
-	transition: all 0.3s ease-in;
+	transition: all 0.1s ease-in;
 	border: 2px solid #e7eaf1;
 	position: relative;
 	width: 210px;
@@ -122,8 +130,7 @@
 	text-transform: uppercase;
 	color: #2d3242;
 	max-width: 210px;
-	flex-shrink: 0;
-	letter-spacing: -2px;
+	font-family: 'bebasCyr';
 }
 
 .card__old-price {
@@ -165,14 +172,17 @@
 }
 
 .card__info-price {
-	font-size: clamp(2.75rem, 2.705rem + 0.23vw, 2.875rem);
 	font-weight: bold;
+	font-size: 46px;
+	color: #2d3242;
+	line-height: 110%;
 }
 
 .card__info-item-wrap {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	margin-bottom: 10px;
 	@media (max-width: 1200px) {
 		margin-bottom: clamp(0.75rem, -0.244rem + 4.24vw, 2.938rem);
 	}
@@ -192,6 +202,14 @@
 	border-radius: 30px;
 	font-size: 20px;
 	color: #fff;
+
+	@media (max-width: 1200px) {
+		width: 100%;
+	}
+
+	@media (max-width: 600px) {
+		padding: 20px 35px;
+	}
 }
 
 .modal__subtitle-wrap {
@@ -244,7 +262,7 @@
 .modal-star {
 	position: absolute;
 	top: 57%;
-	right: 11%;
+	right: 0%;
 	height: clamp(2.5rem, 2.216rem + 1.21vw, 3.125rem);
 	width: clamp(2.5rem, 2.216rem + 1.21vw, 3.125rem);
 	p {
@@ -252,7 +270,8 @@
 	}
 
 	@media (max-width: 1200px) {
-		right: clamp(7rem, -1.75rem + 37.33vw, 26.25rem);
+		right: clamp(7.125rem, -4.409rem + 49.21vw, 32.5rem);
+		top: 40%;
 	}
 }
 
@@ -270,6 +289,6 @@
 	right: 5px;
 
 	@media (max-width: 1200px) {
-		right: clamp(6.563rem, -1.818rem + 35.76vw, 25rem);
+		right: clamp(5.75rem, -5.955rem + 49.94vw, 31.5rem);
 	}
 }

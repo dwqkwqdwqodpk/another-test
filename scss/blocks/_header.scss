@@ -20,14 +20,16 @@
 	line-height: 103%;
 	position: relative;
 	letter-spacing: 2px;
+	font-family: 'bebas';
 	&::after {
 		content: 'минуты';
 		position: absolute;
 		color: #818798;
-		left: clamp(0rem, -0.179rem + 0.89vw, 0.625rem);
+		left: -5px;
 		top: 50%;
 		font-size: 16px;
 		letter-spacing: 0;
+		font-family: 'ptRoot';
 	}
 
 	&::before {
@@ -38,6 +40,7 @@
 		top: 50%;
 		font-size: 16px;
 		letter-spacing: 0;
+		font-family: 'ptRoot';
 	}
 }
 

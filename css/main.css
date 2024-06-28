@@ -100,6 +100,16 @@ legend {
   src: url("../fonts/pt-root-ui_bold.woff");
   font-weight: 800;
 }
+@font-face {
+  font-family: "bebasCyr";
+  src: url("../fonts/ofont.ru_Bebas Neue.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "bebas";
+  src: url("../fonts/BebasNeue-Regular.ttf");
+  font-weight: normal;
+}
 body {
   background-color: #f5f7f7;
   font-family: "ptRoot";
@@ -137,15 +147,17 @@ body {
   line-height: 103%;
   position: relative;
   letter-spacing: 2px;
+  font-family: "bebas";
 }
 .timer::after {
   content: "минуты";
   position: absolute;
   color: #818798;
-  left: clamp(0rem, -0.179rem + 0.89vw, 0.625rem);
+  left: -5px;
   top: 50%;
   font-size: 16px;
   letter-spacing: 0;
+  font-family: "ptRoot";
 }
 .timer::before {
   content: "секунды";
@@ -155,6 +167,7 @@ body {
   top: 50%;
   font-size: 16px;
   letter-spacing: 0;
+  font-family: "ptRoot";
 }
 
 .timer__info {
@@ -190,7 +203,7 @@ body {
 }
 .main {
   margin-top: 27px;
-  margin-bottom: 110px;
+  margin-bottom: clamp(0rem, -2.421rem + 10.33vw, 6.875rem);
   position: relative;
 }
 
@@ -226,12 +239,14 @@ body {
   display: grid;
   gap: 12px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: 300px 125px;
+  grid-auto-rows: 280px 125px;
+  max-width: 585px;
 }
 @media (max-width: 1200px) {
   .row__cards {
     grid-template-columns: 1fr;
     grid-auto-rows: unset;
+    max-width: 100%;
   }
 }
 
@@ -247,10 +262,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 187px;
-  max-height: 276px;
-  transition: all 0.4s ease-in;
+  max-height: 261px;
+  transition: all 0.1s ease-in;
   position: relative;
+  cursor: pointer;
 }
 .row__card:hover {
   border: 2px solid #01b9c5;
@@ -258,7 +273,6 @@ body {
 }
 @media (max-width: 1200px) {
   .row__card {
-    max-width: unset;
     width: 100%;
     flex-direction: unset;
     flex-wrap: wrap;
@@ -270,41 +284,50 @@ body {
 }
 
 .card__title {
-  font-size: 25px;
+  font-family: "bebasCyr";
+  font-size: clamp(1.5rem, 1.368rem + 0.56vw, 1.875rem);
   color: #687078;
   text-transform: uppercase;
   margin-bottom: 21px;
-  letter-spacing: -2px;
+  width: 65%;
 }
 @media (max-width: 1200px) {
   .card__title {
     margin-bottom: 80px;
+    width: auto;
   }
 }
 
 .card__prices {
   margin-bottom: 18px;
 }
+@media (max-width: 1200px) {
+  .card__prices {
+    margin-right: 7%;
+  }
+}
+
 .card__price {
   font-weight: bold;
   font-size: clamp(2.75rem, 2.643rem + 0.54vw, 3.125rem);
-  letter-spacing: -3px;
+  color: #2d3242;
+  line-height: 110%;
 }
 
 .card__text {
-  font-size: 15px;
+  font-size: 16px;
   text-align: center;
-  max-width: 100px;
+  max-width: 117px;
 }
 @media (max-width: 1200px) {
   .card__text {
-    max-width: unset;
-    width: 97px;
+    max-width: 100px;
     text-align: start;
     position: relative;
-    bottom: 10px;
+    bottom: 24px;
     position: absolute;
     letter-spacing: -1px;
+    font-size: clamp(0.875rem, 0.818rem + 0.24vw, 1rem);
   }
 }
 
@@ -314,8 +337,7 @@ body {
   max-width: unset;
   grid-column-start: 1;
   grid-column-end: 4;
-  padding: 23px 40px 25px 31px;
-  gap: 20px;
+  padding: 23px 52px 25px 31px;
 }
 @media (max-width: 1200px) {
   .row__card-second {
@@ -326,15 +348,25 @@ body {
 }
 
 .card__title-second {
-  font-size: clamp(1.5rem, 1.25rem + 1.25vw, 2.375rem);
+  font-size: clamp(1.5rem, 1.368rem + 0.56vw, 1.875rem);
   color: var(--accent);
+  width: -moz-min-content;
+  width: min-content;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
+@media (max-width: 1200px) {
+  .card__title-second {
+    margin-bottom: 80px;
+  }
 }
 
 .card__text-second {
   max-width: 161px;
   text-align: unset;
-  margin-left: 21px;
-  font-size: 14px;
+  margin-left: 55px;
+  font-size: 16px;
+  color: #2f4353;
 }
 @media (max-width: 1200px) {
   .card__text-second {
@@ -342,7 +374,7 @@ body {
     width: 100%;
     margin-left: 0;
     position: absolute;
-    bottom: 10px;
+    bottom: 24px;
     max-width: 90px;
   }
 }
@@ -379,7 +411,7 @@ body {
 .privacy-text {
   font-size: clamp(0.875rem, 0.839rem + 0.18vw, 1rem);
   max-width: 415px;
-  color: var(--accent);
+  color: #818798;
 }
 .privacy-text span {
   color: #2d97f9;
@@ -418,11 +450,16 @@ body {
   font-size: 24px;
   text-align: end;
   text-decoration: line-through;
+  line-height: 110%;
 }
 
 .test {
   opacity: 0;
   position: absolute;
+}
+
+.card__prices-second {
+  margin-bottom: 0;
 }
 
 .checkbox-view {
@@ -443,7 +480,7 @@ body {
 }
 
 .checkbox:checked + .checkbox-view {
-  background-color: green;
+  background-color: #01b9c5;
 }
 
 .checkbox:checked + .checkbox-view .checkbox-icon {
@@ -453,7 +490,7 @@ body {
 .star {
   position: absolute;
   right: 0;
-  top: -10%;
+  top: -15%;
 }
 
 .star__text {
@@ -468,6 +505,16 @@ body {
 .star-second {
   top: -25%;
 }
+@media (max-width: 1200px) {
+  .star-second {
+    top: -15%;
+  }
+}
+
+.selected {
+  border: 2px solid #01b9c5;
+  background-color: rgba(1, 185, 197, 0.05);
+}
 
 .modal {
   position: absolute;
@@ -476,11 +523,12 @@ body {
   transform: translate(-50%, -50%);
   background-color: #f5f7f7;
   z-index: 2;
-  width: clamp(20rem, 12.321rem + 38.39vw, 46.875rem);
+  width: 750px;
 }
 @media (max-width: 1200px) {
   .modal {
     padding: 0 20px 20px 20px;
+    width: clamp(20.938rem, 9.148rem + 50.3vw, 46.875rem);
   }
 }
 
@@ -505,16 +553,17 @@ body {
 .modal__info-text {
   font-size: clamp(0.938rem, 0.777rem + 0.8vw, 1.5rem);
   margin-bottom: 8px;
+  letter-spacing: -0.5px;
 }
 .modal__info-text span {
   font-weight: bold;
 }
 
 .info__link {
-  font-size: clamp(0.938rem, 0.777rem + 0.8vw, 1.5rem);
-  letter-spacing: -1px;
+  font-size: clamp(0.875rem, 0.655rem + 0.94vw, 1.5rem);
   font-weight: bold;
   color: var(--accent);
+  line-height: 130%;
   padding: 12px 28px;
   border: 2px solid #01b9c5;
   border-radius: 60px;
@@ -522,13 +571,19 @@ body {
 .info__link span {
   color: #01b9c5;
 }
+@media (max-width: 800px) {
+  .info__link {
+    padding: 12px 21px;
+    letter-spacing: -0.5px;
+  }
+}
 
 .modal__info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 56px;
+  margin-bottom: clamp(1.625rem, 1.317rem + 1.31vw, 2.5rem);
 }
 
 .modal__cards {
@@ -546,9 +601,10 @@ body {
 
 .modal__cards-title {
   margin-left: 40px;
-  font-size: clamp(0.938rem, 0.777rem + 0.8vw, 1.5rem);
+  font-size: clamp(0.938rem, 0.739rem + 0.85vw, 1.5rem);
   margin-bottom: 20px;
   letter-spacing: -1px;
+  color: #12191d;
 }
 @media (max-width: 1200px) {
   .modal__cards-title {
@@ -562,7 +618,7 @@ body {
   background-color: #ffffff;
   border-radius: 20px;
   position: relative;
-  transition: all 0.3s ease-in;
+  transition: all 0.1s ease-in;
   border: 2px solid #e7eaf1;
   position: relative;
   width: 210px;
@@ -596,8 +652,7 @@ body {
   text-transform: uppercase;
   color: #2d3242;
   max-width: 210px;
-  flex-shrink: 0;
-  letter-spacing: -2px;
+  font-family: "bebasCyr";
 }
 
 .card__old-price {
@@ -641,14 +696,17 @@ body {
 }
 
 .card__info-price {
-  font-size: clamp(2.75rem, 2.705rem + 0.23vw, 2.875rem);
   font-weight: bold;
+  font-size: 46px;
+  color: #2d3242;
+  line-height: 110%;
 }
 
 .card__info-item-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 @media (max-width: 1200px) {
   .card__info-item-wrap {
@@ -670,6 +728,16 @@ body {
   border-radius: 30px;
   font-size: 20px;
   color: #fff;
+}
+@media (max-width: 1200px) {
+  .btn-modal {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .btn-modal {
+    padding: 20px 35px;
+  }
 }
 
 .modal__subtitle-wrap {
@@ -726,7 +794,7 @@ body {
 .modal-star {
   position: absolute;
   top: 57%;
-  right: 11%;
+  right: 0%;
   height: clamp(2.5rem, 2.216rem + 1.21vw, 3.125rem);
   width: clamp(2.5rem, 2.216rem + 1.21vw, 3.125rem);
 }
@@ -735,7 +803,8 @@ body {
 }
 @media (max-width: 1200px) {
   .modal-star {
-    right: clamp(7rem, -1.75rem + 37.33vw, 26.25rem);
+    right: clamp(7.125rem, -4.409rem + 49.21vw, 32.5rem);
+    top: 40%;
   }
 }
 
@@ -754,6 +823,6 @@ body {
 }
 @media (max-width: 1200px) {
   .modal-star-second {
-    right: clamp(6.563rem, -1.818rem + 35.76vw, 25rem);
+    right: clamp(5.75rem, -5.955rem + 49.94vw, 31.5rem);
   }
 }/*# sourceMappingURL=main.css.map */

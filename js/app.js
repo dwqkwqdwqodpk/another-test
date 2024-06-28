@@ -24,6 +24,7 @@ async function getResponse() {
 				}
 				for (let j = 0; j < 4; j++) {
 					oldPrices[j].innerHTML = filteredData[j].price + '₽'
+					oldPrices[j].style.marginBottom = '20px'
 				}
 			}
 			changes()
@@ -40,7 +41,7 @@ getResponse()
 let isModalOpen = false
 
 let minutes = 10
-const milliseconds = minutes * 60 * 4
+const milliseconds = minutes * 60 * 0
 const timerElement = document.querySelector('.timer')
 const startTime = new Date().getTime() // Установка начального времени
 
@@ -63,7 +64,7 @@ function updateTimer() {
 			prices[value].style.display = 'none'
 			oldPrices[value].style.fontWeight = 'bold'
 			oldPrices[value].style.textDecoration = 'unset'
-			oldPrices[value].style.color = '#000'
+			oldPrices[value].style.color = '#2D3242'
 			oldPrices[value].style.fontSize =
 				'clamp(2.75rem, 2.643rem + 0.54vw, 3.125rem)'
 		}
@@ -81,7 +82,7 @@ function updateTimer() {
 	let formattedMinutes = minutes.toString().padStart(2, '0')
 	let formattedSeconds = seconds.toString().padStart(2, '0')
 	// Форматируем время
-	let formattedTime = formattedMinutes + ':' + formattedSeconds
+	let formattedTime = formattedMinutes + ' : ' + formattedSeconds
 
 	// Вставляем время в элемент
 	timerElement.innerHTML = formattedTime
@@ -93,3 +94,34 @@ if (window.matchMedia('(max-width: 1200px)').matches) {
 	document.querySelector('.card__text-second ').innerHTML =
 		'Всегда быть в форме ⭐️'
 }
+
+const card = document.querySelectorAll('.row__card')
+
+card.forEach(function (item) {
+	item.addEventListener('click', function (event) {
+		// Удаляем класс 'selected' со всех карточек
+		card.forEach(function (c) {
+			c.classList.remove('selected')
+		})
+
+		// Добавляем класс 'selected' только к карточке, по которой кликнули
+		item.classList.add('selected')
+	})
+})
+
+const modalCards = document.querySelectorAll('.modal__card-item')
+const radios = document.querySelectorAll('.custom-radio')
+
+modalCards.forEach(function (item, index) {
+	item.addEventListener('click', function (event) {
+		// Удаляем класс 'selected' со всех карточек
+		modalCards.forEach(function (c) {
+			c.classList.remove('selected')
+		})
+
+		// Добавляем класс 'selected' только к карточке, по которой кликнули
+		item.classList.add('selected')
+
+		radios[index].checked = true
+	})
+})
