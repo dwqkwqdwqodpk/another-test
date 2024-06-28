@@ -563,14 +563,13 @@ body {
 .modal__info-text {
   font-size: clamp(0.938rem, 0.777rem + 0.8vw, 1.5rem);
   margin-bottom: 8px;
-  letter-spacing: -0.5px;
 }
 .modal__info-text span {
   font-weight: bold;
 }
 
 .info__link {
-  font-size: clamp(0.875rem, 0.655rem + 0.94vw, 1.5rem);
+  font-size: clamp(0.938rem, 0.682rem + 1.09vw, 1.5rem);
   font-weight: bold;
   color: var(--accent);
   line-height: 130%;
@@ -583,7 +582,7 @@ body {
 }
 @media (max-width: 800px) {
   .info__link {
-    padding: 12px 21px;
+    padding: 12px 23px;
     letter-spacing: -0.5px;
   }
 }
@@ -613,13 +612,13 @@ body {
   margin-left: 40px;
   font-size: clamp(0.938rem, 0.739rem + 0.85vw, 1.5rem);
   margin-bottom: 20px;
-  letter-spacing: -1px;
   color: #12191d;
 }
 @media (max-width: 1200px) {
   .modal__cards-title {
     margin-left: 0;
     text-align: center;
+    letter-spacing: -0.3px;
   }
 }
 
