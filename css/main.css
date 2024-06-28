@@ -521,6 +521,11 @@ body {
   background-color: rgba(1, 185, 197, 0.05);
 }
 
+.modal__card-item.selected {
+  border: 2px solid #01b9c5;
+  background-color: rgba(1, 185, 197, 0.05);
+}
+
 .modal {
   position: absolute;
   top: 50%;
