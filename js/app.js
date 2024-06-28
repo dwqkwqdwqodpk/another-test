@@ -40,7 +40,7 @@ getResponse()
 let isModalOpen = false
 
 let minutes = 10
-const milliseconds = minutes * 60 * 10
+const milliseconds = minutes * 60 * 20
 const timerElement = document.querySelector('.timer')
 const startTime = new Date().getTime() // Установка начального времени
 
