@@ -24,7 +24,6 @@ async function getResponse() {
 				}
 				for (let j = 0; j < 4; j++) {
 					oldPrices[j].innerHTML = filteredData[j].price + '₽'
-					oldPrices[j].style.marginBottom = '20px'
 				}
 			}
 			changes()
@@ -41,7 +40,7 @@ getResponse()
 let isModalOpen = false
 
 let minutes = 10
-const milliseconds = minutes * 60 * 0
+const milliseconds = minutes * 60 * 20
 const timerElement = document.querySelector('.timer')
 const startTime = new Date().getTime() // Установка начального времени
 
@@ -59,6 +58,7 @@ function updateTimer() {
 		let star = document.querySelectorAll('.star')
 		for (let i = 0; i < star.length; i++) {
 			star[i].style.display = 'none'
+			oldPrices[i].style.marginBottom = '20px'
 		}
 		for (let value in prices) {
 			prices[value].style.display = 'none'
